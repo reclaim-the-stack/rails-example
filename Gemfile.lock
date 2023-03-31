@@ -105,7 +105,6 @@ GEM
     connection_pool (2.4.0)
     crass (1.0.6)
     date (3.3.3)
-    error_highlight (0.5.1)
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -202,16 +201,14 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  error_highlight (>= 0.4.0)
   importmap-rails
-  pg (~> 1.1)
+  pg
   propshaft
-  puma (>= 5.0)
+  puma
   rails!
-  redis (>= 4.0.1)
+  redis
   stimulus-rails
   turbo-rails
-  tzinfo-data
   web-console
 
 RUBY VERSION
