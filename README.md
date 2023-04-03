@@ -1,24 +1,7 @@
-# README
+# Rails Example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Example Rails 7.1 app which can be deployed to the Reclaim the Stack platform. It's a blog!
 
-Things you may want to cover:
+After configuring `k` you can build and push the Docker image using `k build-and-push`.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+New versions can be deployed via `k deploy <application-name>`.
