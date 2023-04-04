@@ -7,10 +7,12 @@ gem "rails", github: "rails/rails", branch: "main"
 
 gem "bootsnap", require: false
 gem "importmap-rails"
+gem "opengraph_parser"
 gem "pg"
 gem "propshaft"
 gem "puma"
 gem "redis"
+gem "sidekiq"
 gem "stimulus-rails"
 gem "turbo-rails"
 

@@ -1,0 +1,11 @@
+<div id="<%= dom_id link %>">
+  <% if link.state == "pending" %>
+    <p>Pending: <%= link.url %></p>
+  <% elsif link.state == "success" %>
+    <p><%= image_tag link.image_url, width: 300 %></p>
+    <h3><%= link_to link.title, link.url %></h3>
+    <p><%= link.description %></p>
+  <% else %>
+    <p style="color: red">Error: <%= link.url %></p>
+  <% end %>
+</div>

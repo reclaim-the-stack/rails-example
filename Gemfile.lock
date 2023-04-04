@@ -97,6 +97,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.2)
+      public_suffix (>= 2.0.2, < 6.0)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -144,12 +146,16 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    opengraph_parser (0.2.5)
+      addressable
+      nokogiri
     pg (1.4.6)
     propshaft (0.7.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
+    public_suffix (5.0.1)
     puma (6.2.0)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -173,6 +179,11 @@ GEM
       connection_pool
     reline (0.3.3)
       io-console (~> 0.5)
+    sidekiq (7.0.7)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -202,11 +213,13 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   importmap-rails
+  opengraph_parser
   pg
   propshaft
   puma
   rails!
   redis
+  sidekiq
   stimulus-rails
   turbo-rails
   web-console

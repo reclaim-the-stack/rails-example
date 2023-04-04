@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <nav style="font-size: 1.5rem;">
+      <%= link_to "Posts", posts_path %>
+      <%= link_to "Links", links_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>

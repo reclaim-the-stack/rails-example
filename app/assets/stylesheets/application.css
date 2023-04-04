@@ -1,1 +1,13 @@
-/* Application styles */
+body {
+  margin-top: 3rem;
+  margin-left: 3rem;
+  font-family: "Arial", cursive, sans-serif;
+}
+
+nav, h1, h3 {
+  font-family: "Arial Rounded MT Bold", Gadget, sans-serif;
+}
+
+a, a:visited {
+  color: blue;
+}
