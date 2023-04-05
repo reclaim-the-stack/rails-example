@@ -1,11 +1,18 @@
-<div id="<%= dom_id link %>">
+<div id="<%= dom_id link %>" style="display: flex; align-items: center; margin-bottom: 1rem; gap: 1rem; max-width: 1024px">
   <% if link.state == "pending" %>
     <p>Pending: <%= link.url %></p>
+    <%= button_to "🗑️", link, method: :delete %>
   <% elsif link.state == "success" %>
-    <p><%= image_tag link.image_url, width: 300 %></p>
-    <h3><%= link_to link.title, link.url %></h3>
-    <p><%= link.description %></p>
+    <%= image_tag link.image_url, width: 300, height: 160, style: "border: solid gray 1px; object-fit: cover;" %>
+    <div>
+      <h3><%= link_to link.title, link.url %></h3>
+      <p>
+        <%= link.description %>
+        <%= button_to "🗑️", link, method: :delete %>
+      </p>
+    </div>
   <% else %>
     <p style="color: red">Error: <%= link.url %></p>
+    <%= button_to "🗑️", link, method: :delete %>
   <% end %>
 </div>

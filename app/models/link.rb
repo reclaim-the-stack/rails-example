@@ -3,7 +3,7 @@ class Link < ApplicationRecord
   validate :validate_format_of_url
   validates_inclusion_of :state, in: %w[pending success error]
 
-  after_create :enqueue_crawl_job
+  after_create_commit :enqueue_crawl_job
   after_update_commit -> { broadcast_replace_later_to "links", target: "link_#{id}" }
 
   private

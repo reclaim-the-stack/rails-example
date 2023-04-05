@@ -7,8 +7,6 @@
 <div id="links" style="margin-bottom: 2rem">
   <% @links.each do |link| %>
     <%= render link %>
-
-    <%= button_to "Destroy this link", link, method: :delete %>
   <% end %>
 </div>
 
