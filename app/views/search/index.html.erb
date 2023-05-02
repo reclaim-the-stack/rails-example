@@ -1,0 +1,16 @@
+<h1>Search</h1>
+
+<%= form_with url: search_path, method: :get do |form| %>
+  <%= form.label :query %>
+  <%= form.text_field :query, value: params[:query], autofocus: true %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<% if @results.present? %>
+  <h2>Results</h2>
+  <ul>
+    <% @results.each do |result| %>
+      <li><%= link_to result.title, result %></li>
+    <% end %>
+  </ul>
+<% end %>
