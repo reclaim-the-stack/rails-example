@@ -1,4 +1,6 @@
 class Link < ApplicationRecord
+  include Searchable
+
   validates_presence_of :url
   validate :validate_format_of_url
   validates_inclusion_of :state, in: %w[pending success error]
@@ -7,6 +9,14 @@ class Link < ApplicationRecord
   after_update_commit -> { broadcast_replace_later_to "links", target: "link_#{id}" }
 
   private
+
+  def should_index?
+    status == "success"
+  end
+
+  def searchable_content
+    description
+  end
 
   def enqueue_crawl_job
     CrawlLinkJob.perform_later(id)

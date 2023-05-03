@@ -7,6 +7,8 @@ gem "rails", github: "rails/rails", branch: "main"
 
 gem "bootsnap", require: false
 gem "dotenv-rails"
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
 gem "importmap-rails"
 gem "opengraph_parser"
 gem "pg"
