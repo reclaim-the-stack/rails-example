@@ -1,6 +1,7 @@
 name: docker-build-and-push
 
-on: push
+# Disabled in favour of faster Depot builds
+# on: push
 
 jobs:
   docker:
