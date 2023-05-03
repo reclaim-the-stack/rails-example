@@ -1,5 +1,11 @@
 <h1>Search</h1>
 
+<% if ENV["ELASTICSEARCH_URL"].blank? %>
+  <p style="background: #ffcccb; border: 1px solid red; padding: 1rem; border-radius: 5px; width: fit-content; margin-bottom: 2rem">
+    Warning: <strong>ELASTICSEARCH_URL</strong> must be set to use the search page!
+  </p>
+<% end %>
+
 <%= form_with url: search_path, method: :get do |form| %>
   <%= form.label :query %>
   <%= form.text_field :query, value: params[:query], autofocus: true %>
