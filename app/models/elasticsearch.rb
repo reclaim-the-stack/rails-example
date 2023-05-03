@@ -103,6 +103,11 @@ module Elasticsearch
       request.content_type = "application/json"
       request.body = params&.to_json
 
+      if uri.userinfo
+        username, password = uri.userinfo.split(":")
+        request.basic_auth(username, password)
+      end
+
       Rails.logger.debug "[Elasticsearch/request] #{request.method} #{request.uri} #{request.body}" if Rails.logger.debug?
 
       response = connection.request(request)
