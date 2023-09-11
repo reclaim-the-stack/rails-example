@@ -15,7 +15,7 @@ class Link < ApplicationRecord
   private
 
   def should_index?
-    state == "success"
+    super && state == "success"
   end
 
   def enqueue_crawl_job

@@ -11,9 +11,11 @@ module Elasticsearchable
     end
   end
 
-  # Override this method to control when the model should be indexed
+  # Override this method to control when the model should be indexed.
+  # By default we skip indexing unless Sidekiq is connected to Redis
+  # to avoid raising errors after commit.
   def should_index?
-    true
+    Sidekiq.redis(&:info) rescue false
   end
 
   def elasticsearch_id
