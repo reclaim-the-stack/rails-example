@@ -3,7 +3,7 @@
     <p>Pending: <%= link.url %></p>
     <%= button_to "🗑️", link, method: :delete %>
   <% elsif link.state == "success" %>
-    <%= image_tag link.image_url, width: 300, height: 160, style: "border: solid gray 1px; object-fit: cover;" %>
+    <%= image_tag link.image_url, width: 300, height: 160, style: "border: solid gray 1px; object-fit: cover;" if link.image_url %>
     <div>
       <h3><%= link_to link.title, link.url %></h3>
       <p>
