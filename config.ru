@@ -2,7 +2,7 @@
 
 require_relative "config/environment"
 
-ENV.fetch("LOL")
+abort "no server for you!"
 
 run Rails.application
 Rails.application.load_server
