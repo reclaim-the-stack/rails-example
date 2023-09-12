@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
+    raise "oh no, a bug!"
     @posts = Post.all
   end
 
