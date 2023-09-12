@@ -11,7 +11,7 @@ module Elasticsearchable
     after_commit on: :destroy do
       ElasticsearchDeleteJob.perform_later(elasticsearch_id)
     rescue RedisClient::CannotConnectError
-      Rails.logger.warn "Skipping ElasticsearchIndexJob for #{self.class.name} #{id} because Redis is not connected"
+      Rails.logger.warn "Skipping ElasticsearchDeleteJob for #{self.class.name} #{id} because Redis is not connected"
     end
   end
 
