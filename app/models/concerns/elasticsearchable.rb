@@ -4,18 +4,20 @@ module Elasticsearchable
   included do
     after_commit on: %i[create update], if: :should_index? do
       ElasticsearchIndexJob.perform_later(self.class.name, id)
+    rescue RedisClient::CannotConnectError
+      Rails.logger.warn "Skipping ElasticsearchIndexJob for #{self.class.name} #{id} because Redis is not connected"
     end
 
     after_commit on: :destroy do
       ElasticsearchDeleteJob.perform_later(elasticsearch_id)
+    rescue RedisClient::CannotConnectError
+      Rails.logger.warn "Skipping ElasticsearchIndexJob for #{self.class.name} #{id} because Redis is not connected"
     end
   end
 
   # Override this method to control when the model should be indexed.
-  # By default we skip indexing unless Sidekiq is connected to Redis
-  # to avoid raising errors after commit.
   def should_index?
-    Sidekiq.redis(&:info) rescue false
+    true
   end
 
   def elasticsearch_id
