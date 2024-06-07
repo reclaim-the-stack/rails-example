@@ -43,5 +43,9 @@ module RailsExample
     config.hosts.clear
 
     config.active_job.queue_adapter = :sidekiq
+
+    if ENV["CLOUDFLARE_WORKER_HOST"].present?
+      config.action_controller.default_url_options = { host: ENV.fetch("CLOUDFLARE_WORKER_HOST") }
+    end
   end
 end
