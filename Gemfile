@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read(".ruby-version")
 
-gem "rails", github: "rails/rails", branch: "main"
+gem "rails"
 
 gem "bootsnap", require: false
 gem "httpx"
