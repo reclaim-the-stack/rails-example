@@ -6,6 +6,7 @@ ruby File.read(".ruby-version")
 gem "rails", github: "rails/rails", branch: "main"
 
 gem "bootsnap", require: false
+gem "httpx"
 gem "importmap-rails"
 gem "opengraph_parser"
 gem "pg"
@@ -22,4 +23,9 @@ end
 
 group :development, :test do
   gem "dotenv-rails"
+  gem "rspec-rails"
+end
+
+group :test do
+  gem "webmock"
 end
