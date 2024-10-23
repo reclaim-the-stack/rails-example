@@ -9,6 +9,7 @@ gem "bootsnap", require: false
 gem "httpx"
 gem "importmap-rails"
 gem "opengraph_parser"
+gem "ostruct" # to avoid deprecation warning, this gem will be removed in Ruby 3.5.0
 gem "pg"
 gem "propshaft"
 gem "puma"
