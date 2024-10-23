@@ -141,6 +141,7 @@ GEM
     opengraph_parser (0.2.5)
       addressable
       nokogiri
+    ostruct (0.6.0)
     pg (1.5.8)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
@@ -263,6 +264,7 @@ DEPENDENCIES
   httpx
   importmap-rails
   opengraph_parser
+  ostruct
   pg
   propshaft
   puma
@@ -276,7 +278,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.3.2p78
+   ruby 3.3.5p100
 
 BUNDLED WITH
-   2.5.11
+   2.5.22
