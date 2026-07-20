@@ -10,12 +10,13 @@ RSpec.describe "LinksController" do
   end
 
   describe "POST /links" do
-    it "creates a link and redirects to the index" do
+    it "creates a link, enqueues a crawl and redirects to the index" do
       expect {
         post "/links", params: { link: { url: "https://example.com" } }
       }.to change(Link, :count).by(1)
 
       expect(response).to redirect_to(links_path)
+      expect(CrawlLinkJob).to have_been_enqueued.with(Link.last.id)
     end
 
     it "rejects an invalid URL" do
